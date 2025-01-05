@@ -93,6 +93,13 @@ class Customer:
         else:
             availablity = "No disponible"
         print(f"El {vehicle.brand} estÃ¡ {availablity} y cuesta {vehicle.get_price()}")
+   
+   
+    def show_vehiculos_customer(self):
+        print("Vehiculos disponibles del cliente")
+        for vehicle in self.purchased_vehicles:
+            print(f"- {vehicle.brand} por {vehicle.get_price()} con el cliente {self.name}")
+    
 
 class Dealership:
     def __init__(self):
@@ -113,6 +120,7 @@ class Dealership:
             if vehicle.check_available():
                 print(f"- {vehicle.brand} por {vehicle.get_price()}")
     
+        
 car1 = Car("Toyota", "Corolla", 20000)
 bike1 = Bike("Yamaha", "MT-07", 7000)
 truck1 = Truck("Volvo", "FH16", 80000)
@@ -135,3 +143,5 @@ customer1.buy_vehicle(car1)
 
 #Mostrar vehiculos disponibles
 dealership.show_available_vehicle()
+
+Customer.show_vehiculos_customer(customer1)
